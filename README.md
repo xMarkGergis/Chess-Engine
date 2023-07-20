@@ -7,11 +7,17 @@ I created this AI-powered Chess Engine because I love playing Chess and wanted t
 
 ## Features
 Castling: Able to perform castling moves on kingside and queenside to add depth to your gameplay.
+
 En Passant: This engine supports en passant moves.
+
 Pawn Promotions: Able to promote your pawn pieces.
+
 Fully Functional Move Log: This engine keeps track of all the moves during the game state using proper chess notation, and can be used for review and analysis. 
+
 Undo Move and Reset Board: Easily undo your moves and the engines with 'z' and reset the game by clicking 'r'.
+
 Check and Checkmate: The engine accurately detects check and checkmate situations.
+
 Move Animation and Piece Highlighting: Enjoy visually engaging move animations and highlighting of legal moves!
 
 ## How to Use
