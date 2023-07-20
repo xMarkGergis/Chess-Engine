@@ -22,7 +22,7 @@ Move Animation and Piece Highlighting: Enjoy visually engaging move animations a
 
 ## How to Use
 1. Clone the repository
-2. run 'ChessMain.py' file to start the game
+2. Run 'ChessMain.py' file to start the game
 
 Feel free to report issues and/or provide feedback to enhance the engine further!
 
