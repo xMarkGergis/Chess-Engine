@@ -112,7 +112,7 @@ def find_best_move_minmax_no_recursion(gs, valid_moves):
     return best_move
 
 
-def find_best_move(gs, valid_moves):
+def find_best_move(gs, valid_moves, return_queue):
     global next_move, counter
     next_move = None
     random.shuffle(valid_moves)
@@ -121,7 +121,7 @@ def find_best_move(gs, valid_moves):
     # find_move_negamax(gs, valid_moves, DEPTH, 1 if gs.WhiteToMove else -1)
     find_move_negamax_alphabeta(gs, valid_moves, DEPTH, -CHECKMATE, CHECKMATE, 1 if gs.WhiteToMove else -1)
     print(counter)
-    return next_move
+    return_queue.put(next_move) # whenever its finished put it into return queue
 
 
 def find_move_minmax(gs, valid_moves, depth, WhiteToMove):
