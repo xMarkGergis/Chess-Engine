@@ -46,7 +46,7 @@ def main():
     sq_selected = ()  # no square is selected initially, also keeps track of the last click of user
     player_clicks = []  # two tuples, keeps track of player clicks
     game_over = False
-    player_one = True  # if the user is playing white, will be true, if AI is playing, will be false
+    player_one = False  # if the user is playing white, will be true, if AI is playing, will be false
     player_two = False  # if the user is playing black, will be true, if AI is playing, will be false
     while running:
         human_turn = (gs.WhiteToMove and player_one) or (not gs.WhiteToMove and player_two)
