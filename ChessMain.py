@@ -4,6 +4,7 @@ This is my main driver file. It will be responsible for handling user input and 
 
 import pygame as p
 from ChessPackage import ChessEngine, ChessAI
+from multiprocessing import Process, Queue
 
 BOARD_WIDTH = BOARD_HEIGHT = 512
 MOVE_LOG_PANEL_WIDTH = 250
@@ -46,8 +47,11 @@ def main():
     sq_selected = ()  # no square is selected initially, also keeps track of the last click of user
     player_clicks = []  # two tuples, keeps track of player clicks
     game_over = False
-    player_one = False  # if the user is playing white, will be true, if AI is playing, will be false
+    player_one = True  # if the user is playing white, will be true, if AI is playing, will be false
     player_two = False  # if the user is playing black, will be true, if AI is playing, will be false
+    ai_thinking = False # true whenever the engine is coming up with a move, false whenever it is not
+    move_finder_process = None
+    move_undone = False
     while running:
         human_turn = (gs.WhiteToMove and player_one) or (not gs.WhiteToMove and player_two)
         for e in p.event.get():
@@ -55,7 +59,7 @@ def main():
                 running = False
             # mouse handlers
             elif e.type == p.MOUSEBUTTONDOWN:
-                if not game_over and human_turn:
+                if not game_over:
                     location = p.mouse.get_pos()  # (x,y) location of mouse
                     col = location[0] // SQ_SIZE
                     row = location[1] // SQ_SIZE
@@ -65,7 +69,7 @@ def main():
                     else:
                         sq_selected = (row, col)
                         player_clicks.append(sq_selected)  # appends for both 1st and 2nd clicks
-                    if len(player_clicks) == 2:
+                    if len(player_clicks) == 2 and human_turn: # after second click
                         move = ChessEngine.Move(player_clicks[0], player_clicks[1], gs.board)
                         print(move.get_chess_notation())
                         for i in range(len(valid_moves)):
@@ -84,6 +88,11 @@ def main():
                     move_made = True
                     animate = False
                     game_over = False
+                    if ai_thinking:
+                        move_finder_process.terminate() # if engine is currently thinking kill the thread, fixes bug that does not let you undo move
+                        ai_thinking = False
+                    move_undone = True
+
                 if e.key == p.K_r:  # reset whole board when 'r' is pressed
                     gs = ChessEngine.GameState()
                     valid_moves = gs.get_valid_moves()
@@ -92,15 +101,26 @@ def main():
                     move_made = False
                     animate = False
                     game_over = False
-
+                    if ai_thinking:
+                        move_finder_process.terminate()  # reset
+                        ai_thinking = False
+                    move_undone = True
         # ai move finder
-        if not game_over and not human_turn:
-            ai_move = ChessAI.find_best_move(gs, valid_moves)
-            if ai_move is None:
-                ai_move = ChessAI.find_random_move(valid_moves)
-            gs.make_move(ai_move)
-            move_made = True
-            animate = True
+        if not game_over and not human_turn and not move_undone: # and not move_undone fixes bug where if user undo move, engine continues to think despite it
+            if not ai_thinking:
+                ai_thinking = True
+                return_queue = Queue() # will pass data  between threads
+                move_finder_process = Process(target=ChessAI.find_best_move, args=(gs, valid_moves, return_queue)) # when process starts, call this function
+                move_finder_process.start() # calls find_best_move(gs, valid_moves, return_queue)
+
+            if not move_finder_process.is_alive(): # whether or not engine is still thinking, if thread is alive or not
+                ai_move = return_queue.get() # accesses return queue calls get function to give back whatever gets put in return queue
+                if ai_move is None:
+                    ai_move = ChessAI.find_random_move(valid_moves)
+                gs.make_move(ai_move)
+                move_made = True
+                animate = True
+                ai_thinking = False
 
         if move_made:
             if animate:
@@ -108,6 +128,7 @@ def main():
             valid_moves = gs.get_valid_moves()
             move_made = False
             animate = False
+            move_undone = False # after move is made set to false
 
         draw_game_state(screen, gs, valid_moves, sq_selected, move_log_font)
 
