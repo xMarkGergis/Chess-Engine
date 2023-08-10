@@ -3,7 +3,8 @@ This is my main driver file. It will be responsible for handling user input and 
 """
 
 import pygame as p
-from ChessPackage import ChessEngine, ChessAI
+import ChessEngine
+import ChessAI
 from multiprocessing import Process, Queue
 
 BOARD_WIDTH = BOARD_HEIGHT = 512
