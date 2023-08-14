@@ -16,13 +16,13 @@ Undo Move and Reset Board: Easily undo your moves and the engines with 'z' and r
 
 Check and Checkmate: The engine accurately detects check and checkmate situations.
 
-Move Animation and Piece Highlighting: Enjoy visually engaging move animations and highlighting of legal moves!
+Move Animation and Piece Highlighting: Enjoy visually engaging move animations and highlighting of legal moves.
 
 ## How to Use
 1. Clone the repository
 2. Run 'ChessMain.py' file to start the game
 
-Feel free to report issues and/or provide feedback to enhance the engine further!
+Feel free to report issues and/or provide feedback to enhance the engine further.
 
 ## Visuals
 ![example1](https://github.com/Markgergis100/Chess-Engine/assets/121286835/5b039e86-e54f-436f-aed2-540be29175ec)
