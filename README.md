@@ -25,5 +25,5 @@ Move Animation and Piece Highlighting: Enjoy visually engaging move animations a
 Feel free to report issues and/or provide feedback to enhance the engine further.
 
 ## Visuals
-![example1](https://github.com/Markgergis100/Chess-Engine/assets/121286835/5b039e86-e54f-436f-aed2-540be29175ec)
-![example2](https://github.com/Markgergis100/Chess-Engine/assets/121286835/ead9264c-590c-4313-8cf6-1d83cdb1c4bf)
+![chessex1](https://github.com/xMarkGergis/Chess-Engine/assets/121286835/25f0cc78-1f9d-4cf0-b270-032ba3537a98)
+![chessex2](https://github.com/xMarkGergis/Chess-Engine/assets/121286835/fd2fd9a7-2c11-4058-b562-56e39ec00508)
