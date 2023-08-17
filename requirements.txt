@@ -1,0 +1,4 @@
+pygame
+flask
+flask-socketio
+flask-cors
