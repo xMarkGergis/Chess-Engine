@@ -12,7 +12,7 @@ Pawn Promotions: Able to promote your pawn pieces.
 
 Fully Functional Move Log: This engine keeps track of all the moves during the game state using proper chess notation and can be used for review and analysis. 
 
-Undo Move and Reset Board: Easily undo your moves and the engines with 'z' and reset the game by clicking 'r.'
+Undo the previous Move and Reset Board buttons.
 
 Check and Checkmate: The engine accurately detects check and checkmate situations.
 
