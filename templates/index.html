@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Mark's Chess Engine</title>
+    <link rel="stylesheet" type="text/css" href="/css/chessboard-1.0.0.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container m-auto">
+    <div class="row my-container">
+        <div class="col-2"></div>
+        <div class="col-8 my-board">
+            <div class="row">
+                <!-- chessboard container -->
+                <div id="myBoard" class="row">
+                </div>
+                <!--control buttons-->
+                <div class="row" style="margin-top: 10px">
+                    <div class="col m-auto">
+                        <!--undo-->
+                        <button class="btn btn-sm btn-primary undo-btn"><- Undo</button>
+                        <!--reset-->
+                        <button class="btn btn-warning btn-sm reset-btn" style="margin-right: 30px">Reset</button>
+                        <!--turn indicator-->
+                        <button class="turn" style="border: 0;">Your Turn</button>
+                        <!--check indicator-->
+                        <button class="check check-king" style="border: 0; margin-left: 10px">Check!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <!-- displays moves -->
+            <p class="moves"></p>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="/js/chessboard-1.0.0.js"></script>
+<script src="/js/chess.js"></script>
+<script src="/js/custom.js"></script>
+</html>
