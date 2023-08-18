@@ -25,7 +25,7 @@ Move Animation and Piece Highlighting: Enjoy visually engaging move animations a
 ## Credits
 Appreciation to an existing codebase from Eddie Sharick, which significantly influenced the implementation of move log, castling, Negamax with pruning, and en passant functionalities in this project, as well as Alejandro over at Coding Spot for inspiration for the GUI and initial minimax implementation.
 
-Feel free to report issues and/or provide feedback to enhance the engine further.
+### Feel free to report issues and/or provide feedback to enhance the engine further.
 
 ## Visuals
 ![chessex1](https://github.com/xMarkGergis/Chess-Engine/assets/121286835/25f0cc78-1f9d-4cf0-b270-032ba3537a98)
