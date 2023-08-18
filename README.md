@@ -22,6 +22,9 @@ Move Animation and Piece Highlighting: Enjoy visually engaging move animations a
 1. Clone the repository
 2. Run 'ChessMain.py' file to start the game
 
+## Credits
+Appreciation to an existing codebase from Eddie Sharick, which significantly influenced the implementation of move log, castling, Negamax with pruning, and en passant functionalities in this project, as well as Alejandro over at Coding Spot for inspiration for the GUI and initial minimax implementation.
+
 Feel free to report issues and/or provide feedback to enhance the engine further.
 
 ## Visuals
