@@ -18,7 +18,7 @@ Check and Checkmate: The engine accurately detects check and checkmate situation
 
 Move Animation and Piece Highlighting: Enjoy visually engaging move animations and highlighting of legal moves.
 
-## How to Use
+## Usage
 1. Clone the repository
 2. Run 'ChessMain.py' file to start the game
 
